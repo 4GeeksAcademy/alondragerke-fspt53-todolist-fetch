@@ -1,12 +1,205 @@
+body {
+    background-image: radial-gradient(circle at 62.28% -19.64%, #b2def5 0, #b6ddf7 4.17%, #bbdbf9 8.33%, #c0daf9 12.5%, #c6d8fa 16.67%, #ccd7f9 20.83%, #d2d5f8 25%, #d8d4f6 29.17%, #ded2f4 33.33%, #e4d1f1 37.5%, #e9cfed 41.67%, #eecee9 45.83%, #f2cde5 50%, #f5cce0 54.17%, #f8ccdc 58.33%, #facbd7 62.5%, #fccbd2 66.67%, #fccccd 70.83%, #fcccc9 75%, #fbcdc4 79.17%, #facec0 83.33%, #f7cfbd 87.5%, #f5d0ba 91.67%, #f1d2b8 95.83%, #edd3b6 100%);
+    height: 100vh; 
+    margin: 0;
+    margin-top: 300px;
+    text-align: center;
+}
 
-/* 
+.first-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 200px;
+    text-decoration: none;
+    color: #a977c1; 
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+.first-title:hover {
+    text-shadow: 0 8px 12px rgba(58, 58, 58, 0.2);
+    color: rgb(152, 105, 191); 
+    transform: scale(1.05);
+}
 
-*/
+
+.title {
+    font-family: 'Rajdhani', sans-serif;
+    color: #a977c1; 
+    font-size: 100px;
+    text-shadow: 0 4px 8px rgba(58, 58, 58, 0.2);
+    text-decoration: none;
+}
+
+.title:hover {
+    color: #a977c1;
+}
+
+.note-style {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 1000px;
+    margin: auto;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task-item p {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 20px;
+}
+
+.footer {
+    position: relative;
+    border-top: 1px solid #ddd;
+    width: 1000px;
+    padding: 10px;
+    margin: -10px;
+    margin-top: -20px;
+    padding-right: 850px;
+    color: grey;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+/* estilo del boton eliminar usuario */
+.flame-icon {
+    width: 30px;
+    height: 30px;
+    fill: #c60707e4;
+    text-shadow: 2px 2px 4px #888888;
+  }
+  
+  .delete-all-button {
+    position: absolute;
+    right: 1px; 
+    overflow: hidden;
+    border: white;
+    background-color: #c60707e4;
+    color: black;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center; 
+  }
+  
+  .delete-all-button:hover {
+    color: black !important;
+    font-weight: 700;
+  }
+  
+  .delete-all-button:hover .flame-icon {
+    animation: flameAnimation 1s infinite;
+  }
+
+/* estilo del boton eliminar */
+.task-item {
+    padding: 30px;
+    padding-left: 30px;
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
+    margin: -10px;  
+}
+
+.list-unstyled {
+    width: 100%;
+}
+
+.task-item Button {
+    display: none;
+}
+
+.task-item:hover Button {
+    display: block;
+    border: none;
+    font-size: 18px;
+    color: lightcoral;
+}
+
+.task-item:active Button {
+    font-size: 18px;
+    color: red !important;
+}
+
+
+.task-item Button:focus {
+    outline: none;
+}
+
+/* hojas amontonadas */
+.note-style::before {
+    content: '';
+    position: absolute;
+    bottom: -16px; 
+    transform: translateX(-50%); 
+    width: 977px; 
+    height: 10px; 
+    background-color: #fff; 
+    border: 1px solid #ddd;
+    transform: rotate(-0deg); 
+    z-index: -1;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.note-style::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 987px;
+    height: 10px;
+    border-bottom: none;
+    background-color: #fff; 
+    border: 1px solid #ddd;
+    z-index: -1;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* quitar el estilo del input */
+.input-style {
+    border: none;
+    padding: 20px;
+}
+
+.input-style .form-control,
+.input-style .btn {
+    border: none;
+}
+
+/* quitar el borde azul del focus */
+.input-style .form-control:focus,
+.input-style .btn:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+/* style del texto predeterminado */
+.default-style {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* flames */
+@keyframes flameAnimation {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-10px);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
